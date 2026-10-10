@@ -49,10 +49,13 @@
 		.card-line .value {
 			font-weight: normal;
 			color: #303133;
+			flex: 1;
+			min-width: 0;
 		}
 		/* 防伪图片：纯 CSS 复刻（红底 + 居中车牌文字 + tofu 方框），无需图片文件 */
 		.fw-container {
 			width: 100%;
+			min-height: 60px;
 			aspect-ratio: 600 / 110;
 			position: relative;
 			background: #fff;
