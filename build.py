@@ -31,6 +31,10 @@ def build_pages(items):
     if os.path.exists(PAGES_DIR):
         shutil.rmtree(PAGES_DIR)
     os.makedirs(PAGES_DIR, exist_ok=True)
+    # 防伪底图复制到 pages/ 根，供每个子页面通过 ../a1.png 引用
+    bg_src = os.path.join(BASE, "a1.png")
+    if os.path.exists(bg_src):
+        shutil.copy(bg_src, os.path.join(PAGES_DIR, "a1.png"))
     tpl = load_template()
     for item in items:
         folder = item.get("目录") or item.get("车牌")

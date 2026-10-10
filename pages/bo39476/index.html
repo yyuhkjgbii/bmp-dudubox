@@ -52,7 +52,7 @@
 			flex: 1;
 			min-width: 0;
 		}
-		/* 防伪图片：纯 CSS 复刻（红底 + 居中车牌文字 + tofu 方框），无需图片文件 */
+		/* 防伪图片：背景底图 + 居中车牌文字 + tofu 方框 */
 		.fw-container {
 			width: 100%;
 			min-height: 60px;
@@ -60,13 +60,20 @@
 			position: relative;
 			background: #fff;
 			overflow: hidden;
+			container-type: inline-size;
+		}
+		.fw-bg {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 		.fw-text {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			font-size: 8.5vw;
+			font-size: 8.5cqw;
 			font-weight: bold;
 			background: linear-gradient(to right, #5B0507, #C01011);
 			-webkit-background-clip: text;
@@ -128,6 +135,7 @@
 						<div class="label">防伪图片</div>
 						<div class="value">
 							<div class="fw-container">
+								<img class="fw-bg" src="../a1.png" alt="">
 								<div class="fw-text"><span class="fw-box"></span>BO39476</div>
 							</div>
 						</div>
