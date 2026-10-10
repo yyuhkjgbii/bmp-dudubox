@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="referrer" content="no-referrer">
+	<title>RFID信息 - 车管系统</title>
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/index.b1074d7f.css">
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/font_2298093_rnp72ifj3ba.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/setings.ae40f955.css">
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/closeFull.cd347f09.css">
+	<link rel="stylesheet" href="../assets/RFID信息 - 车管系统_files/index.da4f4d9b.css">
+	<style>
+		.container {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.tilted-text {
+			position: absolute;
+			transform: rotate(-22deg);
+			font-size: 18px;
+			color: rgba(30, 143, 105, 0.43);
+			white-space: nowrap;
+			overflow: hidden;
+			font-family: 'SimSun', '宋体', sans-serif;
+		}
+		body {
+			margin: 0;
+			overflow: hidden;
+			height: 100vh;
+		}
+		/* 卡片样式 */
+		.contentBox {
+			padding: 28px;
+		}
+		.card-line {
+			padding: 12px 0;
+			border-bottom: 1px solid #EBEDF0;
+			display: flex;
+		}
+		.card-line .label {
+			min-width: 90px;
+			color: #646566;
+		}
+		.card-line .value {
+			font-weight: normal;
+			color: #303133;
+			flex: 1;
+			min-width: 0;
+		}
+		/* 防伪图片：背景底图 + 居中车牌文字 + tofu 方框 */
+		.fw-container {
+			width: 100%;
+			min-height: 60px;
+			aspect-ratio: 600 / 110;
+			position: relative;
+			background: #fff;
+			overflow: hidden;
+			container-type: inline-size;
+		}
+		.fw-bg {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.fw-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 8.5cqw;
+			font-weight: bold;
+			background: linear-gradient(to right, #5B0507, #C01011);
+			-webkit-background-clip: text;
+			background-clip: text;
+			color: transparent;
+			font-family: 'SimHei', '黑体', 'Microsoft YaHei', sans-serif;
+			white-space: nowrap;
+			letter-spacing: 0.04em;
+			line-height: 1;
+		}
+		/* tofu 占位框：复刻后端字体缺字占位符，上端与字母顶对齐、下端略凸出基线 */
+		.fw-box {
+			display: inline-block;
+			width: 0.56em;
+			height: 0.92em;
+			border: 0.085em solid #4a0608;
+			box-sizing: border-box;
+			margin-right: 0.06em;
+			vertical-align: -0.22em;
+			background: none;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			var dateElements = document.querySelectorAll('.tilted-text');
+			var currentDate = new Date();
+			var formattedDate = currentDate.getFullYear() + '-' +
+				('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' +
+				('0' + currentDate.getDate()).slice(-2) + ' ' +
+				('0' + currentDate.getHours()).slice(-2) + ':' +
+				('0' + currentDate.getMinutes()).slice(-2) + ':' +
+				('0' + currentDate.getSeconds()).slice(-2);
+			dateElements.forEach(function(element) {
+				if (element.textContent.includes('2023-10-31 14:30:15')) {
+					element.textContent = formattedDate;
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id="app" data-v-app="">
+			<div class="contentBox">
+				<div class="card-box">
+					<div class="card-line">
+						<div class="label">车牌号</div>
+						<div class="value">赣AYI4089</div>
+					</div>
+					<div class="card-line">
+						<div class="label">车主姓名</div>
+						<div class="value">张**</div>
+					</div>
+					<div class="card-line">
+						<div class="label">入网时间</div>
+						<div class="value">2025-3-12 12:36:27</div>
+					</div>
+					<div class="card-line">
+						<div class="label">防伪图片</div>
+						<div class="value">
+							<div class="fw-container">
+								<img class="fw-bg" src="../a1.png" alt="">
+								<div class="fw-text"><span class="fw-box"></span>AYI4089</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tilted-text" style="left: 35px; top: 10px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 40px; top: 20px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 35px; top: 210px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 40px; top: 220px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 35px; top: 410px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 40px; top: 420px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 35px; top: 610px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 40px; top: 620px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 35px; top: 810px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 40px; top: 820px;">2023-10-31 14:30:15</div>
+
+		<div class="tilted-text" style="left: 235px; top: 10px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 240px; top: 20px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 235px; top: 210px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 240px; top: 220px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 235px; top: 410px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 240px; top: 420px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 235px; top: 610px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 240px; top: 620px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 235px; top: 810px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 240px; top: 820px;">2023-10-31 14:30:15</div>
+
+		<div class="tilted-text" style="left: 435px; top: 10px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 440px; top: 20px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 435px; top: 210px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 440px; top: 220px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 435px; top: 410px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 440px; top: 420px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 435px; top: 610px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 440px; top: 620px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 435px; top: 810px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 440px; top: 820px;">2023-10-31 14:30:15</div>
+
+		<div class="tilted-text" style="left: 635px; top: 10px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 640px; top: 20px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 635px; top: 210px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 640px; top: 220px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 635px; top: 410px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 640px; top: 420px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 635px; top: 610px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 640px; top: 620px;">2023-10-31 14:30:15</div>
+		<div class="tilted-text" style="left: 635px; top: 810px;">赣AYI4089</div>
+		<div class="tilted-text" style="left: 640px; top: 820px;">2023-10-31 14:30:15</div>
+	</div>
+</body>
+</html>
